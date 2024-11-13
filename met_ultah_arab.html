@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun buat Arabb!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: radial-gradient(circle, #ffafbd, #ffc3a0);
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            color: #fff;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 2s ease-in-out;
+        }
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(to right, #ff512f, #dd2476);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            animation: pop 1s ease-in-out infinite alternate;
+        }
+        p {
+            font-size: 1.2rem;
+            color: #fff;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 50px;
+            background-color: #ff8a65;
+            color: #fff;
+            transition: 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            background-color: #ff7043;
+            transform: scale(1.05);
+        }
+        /* Animasi */
+        @keyframes pop {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes confetti {
+            0% { opacity: 1; transform: translateY(0) rotate(0); }
+            100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
+        }
+        /* Kepingan konfeti */
+        .confetti {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            top: -10px;
+            border-radius: 50%;
+            background-color: #f0f;
+            animation: confetti 5s linear infinite;
+            opacity: 0;
+        }
+        /* Responsif */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            p { font-size: 1rem; }
+            button { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Selamat Ulang Tahun ARABBB! 🎉</h1>
+        <p>"Selamat ulang tahun Arabbb! Semoga tahun ini membawa banyak kesuksesan dan kebahagiaan dalam hidup kamu. Semoga segala usahamu menghasilkan yang terbaik.
+            Lancar terus rezekinya, Panjang Umur, Sehat Selalu dan senantiasa berbakti pada orang tua eaa"</p>
+        <button onclick="playSurprise()">Pencet aja biar tau isinya apa wkwk 🎈</button>
+    </div>
+
+    <!-- Efek suara dan konfeti -->
+    <audio id="birthdaySong" src="laguhbd.mp3"></audio>
+    <script>
+        function playSurprise() {
+            document.getElementById("birthdaySong").play();
+            for (let i = 0; i < 100; i++) {
+                createConfetti();
+            }
+        }
+
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = Math.random() * 100 + "vw";
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 5000);
+        }
+    </script>
+</body>
+</html>
